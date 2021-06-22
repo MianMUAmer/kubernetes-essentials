@@ -1,10 +1,11 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app: guestbook
     tier: frontend
   name: frontend
+  namespace: samplens
 spec:
   progressDeadlineSeconds: 600
   replicas: 10

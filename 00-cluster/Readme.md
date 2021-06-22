@@ -1,6 +1,6 @@
 ```bash
 kubectl cluster-info
-kubectl component-statuses
+kubectl get componentstatus
 kubectl api-resources
 kubectl api-versions
 kubectl get nodes

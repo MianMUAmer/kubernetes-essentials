@@ -8,3 +8,5 @@ spec:
     requests.memory: 1Gi
     limits.cpu: "2"
     limits.memory: 2Gi
+
+ # To check resources = kubectl get quota --namespace=samplens

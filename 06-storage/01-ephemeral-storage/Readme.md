@@ -1,5 +1,5 @@
+### EmptyDir
 
-### EmptyDir 
 ```bash
 kubectl apply -f 01-emptydir-pod.yaml
 kubectl port-forward test-pd 8080:80
@@ -8,6 +8,7 @@ kubectl delete -f 01-emptydir-pod.yaml
 ```
 
 ### Bad Practice
+
 ```bash
 kubectl apply -f 02-emptydir-pod.yaml
 kubectl port-forward test-pd 8080:80
@@ -16,6 +17,7 @@ kubectl delete -f 02-emptydir-pod.yaml
 ```
 
 ### configmap readonly
+
 ```bash
 kubectl create configmap mysql-conn --from-file mysql.conn
 kubectl apply -f 03-emptydir-pod.yaml
@@ -28,11 +30,10 @@ kubectl delete -f 03-emptydir-pod.yaml
 ```
 
 ### Secret Volume
+
 ```bash
 echo mysql://root:topsecretpassword@remote_mysql:3306/pamir > mysql.conn
 kubectl create secret generic mysqlconnection --from-file=mysql.conn
-kubectl apply -f 06-secret.yaml
-kubectl exec -it test-pd  -- /bin/sh
-ls /secret
-cat /secret/mysql.conn
+kubectl apply -f 06-secret-pod.yaml
+kubectl exec -it mysql-client  -- /bin/sh
 ```
