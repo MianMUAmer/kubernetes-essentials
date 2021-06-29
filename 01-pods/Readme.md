@@ -3,6 +3,7 @@ alias k=kubectl
 kubectl apply -f 02-pod.yaml
 kubectl delete -f 02-pod.yaml
 
+kubectl apply -f 03-pods-health.yaml
 kubectl port-forward kuard 8080:8080
 
 kubectl apply -f 04-pods-resources.yaml
@@ -10,8 +11,8 @@ kubectl delete -f 04-pods-resources.yaml
 
 kubectl apply -f 07-nodeselector.yaml
 kubectl describe pod nginx
-kubectl label node xxx cpu=kotu
-kubectl get pods -w
+kubectl label node gke-training-cluster-default-pool-7aa53bdf-3s5n cpu=kotu
+kubectl get pods
 kubectl delete -f 07-nodeselector.yaml
 ```
 
@@ -25,11 +26,8 @@ kubectl set image pod/nginx nginx=nginx:1.7.9
 kubectl get pods -o=jsonpath='{.items[*].spec.containers[*].image}{"\n"}'
 ```
 
-
-
-
-
 #### Todo
+
 - Quality of Service for Pods
 - Projected Volume
 - ImagePull Policy
