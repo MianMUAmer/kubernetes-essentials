@@ -5,7 +5,6 @@ metadata:
     app: guestbook
     tier: frontend
   name: frontend
-  namespace: samplens
 spec:
   ports:
   - port: 80

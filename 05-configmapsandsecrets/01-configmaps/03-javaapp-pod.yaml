@@ -13,3 +13,9 @@ spec:
     - name: log4j-volume 
       configMap:
         name: log4j-config
+
+# Run this command to create config map:
+# kubectl create configmap log4j-config --from-file=log4j.xml
+
+# To delete config map, run:
+# kubectl delete configmap log4j-config 
